@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div
@@ -10,15 +10,15 @@ const Navbar = () => {
         <img src="../logo.png" alt="" className="h-60" />
       </div>
 
-      <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
+      <Link to="/"><div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
         <h1>Home</h1>
-      </div>
-      <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
+      </div></Link>
+      <Link to="/jobpostings"><div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
         <h1>Job Postings</h1>
-      </div>
-      <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
+      </div></Link>
+      <Link to="/internships"><div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
         <h1>Internships</h1>
-      </div>
+      </div></Link>
       <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
         <h1>About</h1>
       </div>
@@ -29,7 +29,7 @@ const Navbar = () => {
         </button>
       </div>
       <div>
-        <input type="text" placeholder="Search Opportunities" className="h-10 p-5 w-50 border-2 rounded-full border-cyan-200 placeholder:text-xs"/>
+        <input type="text" placeholder="Search Opportunities" className="h-10 p-5 w-50 border-2 rounded-full border-cyan-200 placeholder:text-xs outline-0"/>
       </div>
       <div>
         <button className="h-12 w-30 flex justify-center items-center rounded-xl text-black font-bold" style={{backgroundColor:"#2af6fd"}}>
