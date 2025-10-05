@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+  const hostSwitch = useSelector((state) => state.hostSwitch.value);
   return (
     <div
-      className="h-135 w-full"
+      className={hostSwitch == "on" ? "relative bottom-60 h-135 w-full opacity-25" : "z-20 h-135 w-full opacity-100"}
       style={{ backgroundColor: "rgb(20, 20 , 20)" }}
     >
       <div className="flex gap-x-12">
