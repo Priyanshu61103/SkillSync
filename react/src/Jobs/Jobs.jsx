@@ -126,6 +126,7 @@ const Jobs = () => {
             </div>
           </div>
 
+
           <div
             className="h-60 w-180 rounded-xl border-2 border-cyan-300 p-5 mb-10"
             style={{ backgroundColor: "rgb(20, 20 , 20)" }}
@@ -158,6 +159,7 @@ const Jobs = () => {
               <img src="../location_image.png" alt="" className="h-4 w-4" />
               <p className="text-xs text-gray-300">Bengaluru2</p>
             </div>
+
 
             <div className="flex justify-between mt-2">
               <div className="flex gap-2">
