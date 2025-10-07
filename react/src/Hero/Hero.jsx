@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { setHostSwitch } from "../Redux/Slice/hostSlice/hostSlice";
+import { setButton } from "../Redux/Slice/buttonSlice/buttonSlice";
 import Host from "../Host/Host";
+import { Link } from "react-router-dom";
 const Hero = () => {
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
+  const button = useSelector((state) => state.button.value);
   return (
     <div>
       {hostSwitch == "on" && (
         <Host/>
       )}
-      <div className={hostSwitch == "on" ? "relative bottom-60 opacity-25" : "opacity-100"}>
+      <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-76 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-16 opacity-100 z-10" : "opacity-100 z-10"}>
         <div
           className={
             "h-125 w-full flex items-center p-10 justify-around z-0"
@@ -795,16 +798,16 @@ const Hero = () => {
               <img src="more_than_icon.png" alt="" className="h-5 w-5" />
             </button>
           </div>
-
+   
           <div>
             <h1 className="text-4xl text-gray-300 font-semibold mt-10 mb-2 ml-15">
-              AI Mock Interview
+              AI Driven Features
             </h1>
             <p className="text-sm text-gray-300 ml-15 mb-15">
-              Master your concepts with AI-Powered full-length mock tests for
+              Master your concepts with AI-Powered full-length mock tests and Resume Analysis for
               360° preparation!
             </p>
-            <div className="h-80 w-full flex justify-center">
+            <div className="h-80 w-full flex justify-around">
               <div className="h-80 w-110 rounded-2xl border-2 border-gray-300">
                 <img
                   src="../ai_mock_interview_image.png"
@@ -820,8 +823,26 @@ const Hero = () => {
                   </button>
                 </div>
               </div>
+
+              <div className="h-80 w-110 rounded-2xl border-2 border-gray-300">
+                <img
+                  src="../resume-analysis.png"
+                  alt=""
+                  className="h-60 w-110 rounded-t-2xl border-b-2 border-b-gray-300"
+                ></img>
+                <div className="h-20 w-110 flex justify-around items-center">
+                  <h1 className="text-xl font-semibold text-cyan-300">
+                    Resume Analysis
+                  </h1>
+                  <Link to="/resume"><button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
+                    Start
+                  </button></Link>
+                </div>
+              </div>
+
             </div>
           </div>
+          
         </div>
       </div>
     </div>

@@ -3,8 +3,9 @@ import { useSelector } from 'react-redux';
 const Testimonials = () => {
   const [counter3, setCounter3] = useState(0);  
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
+  const button = useSelector((state) => state.button.value);
   return (
-      <div className={hostSwitch == "on" ? "z-20 relative bottom-60 opacity-25" : "z-20 opacity-100"}>
+      <div className={hostSwitch == "on" ? button==="on"?"z-20 relative bottom-76 opacity-25":"z-20 relative bottom-60 opacity-25" : button === "on"?"relative bottom-16 z-20 opacity-100":"z-20 opacity-100"}>
           <h1 className="text-4xl font-semibold mt-10 mb-2 ml-15 text-gray-300">
             Testimonials
           </h1>

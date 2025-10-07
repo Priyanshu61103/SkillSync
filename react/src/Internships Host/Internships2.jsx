@@ -14,14 +14,14 @@ const Jobs2 = () => {
   const [formData, setFormData] = useState({
     companyName: "",
     emailId: "",
-    companyLogo: "",
-    jobDomain: "",
-    jobType: "",
+    companyLogo:"",
+    internshipDomain: "",
+    internshipType: "",
     location: "",
-    ctcAnnual: "",
-    experience: "",
+    Stipend: "",
+    duration: "",
     applyBy: "",
-    jobDescription: "",
+    internshipDescription: "",
     eligiblity: "",
     skills: "",
     about: "",
@@ -40,13 +40,13 @@ const Jobs2 = () => {
     setFormData({
       companyName: "",
       emailId: "",
-      jobDomain: "",
-      jobType: "",
+      internshipDomain: "",
+      internshipType: "",
       location: "",
-      ctcAnnual: "",
-      experience: "",
+      Stipend: "",
+      duration: "",
       applyBy: "",
-      jobDescription: "",
+      internshipDescription: "",
       eligiblity: "",
       skills: "",
       about: "",
@@ -68,7 +68,7 @@ const Jobs2 = () => {
           <p className="text-gray-200 text-sm mt-1 ml-15">
             Hire people who will make your Company Grow
           </p>
-          <div className="ml-15 mt-10 z-20">
+          <div className="ml-15 my-10 z-20">
             <form className="flex gap-y-10 flex-wrap" onSubmit={submitHandler}>
               <div>
                 <label
@@ -86,7 +86,7 @@ const Jobs2 = () => {
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
-       
+
               <div>
                 <label htmlFor="emailId" className="text-md font-semibold mr-5">
                   Email id
@@ -100,7 +100,7 @@ const Jobs2 = () => {
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
-
+              
               <div>
                 <label
                   htmlFor="companyLogo"
@@ -118,32 +118,36 @@ const Jobs2 = () => {
                 />
               </div>
 
+
               <div>
                 <label
-                  htmlFor="jobDomain"
+                  htmlFor="internshipDomain"
                   className="text-md font-semibold mr-5"
                 >
-                  Job Domain
+                  Internship Domain
                 </label>
                 <input
                   type="text"
-                  value={formData.jobDomain}
-                  name="jobDomain"
-                  id="jobDomain"
+                  value={formData.internshipDomain}
+                  name="internshipDomain"
+                  id="internshipDomain"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
 
               <div>
-                <label htmlFor="jobType" className="text-md font-semibold mr-5">
-                  Type of Job
+                <label
+                  htmlFor="internshipType"
+                  className="text-md font-semibold mr-5"
+                >
+                  Type of Internship
                 </label>
                 <input
                   type="text"
-                  value={formData.jobType}
-                  name="jobType"
-                  id="jobType"
+                  value={formData.internshipType}
+                  name="internshipType"
+                  id="internshipType"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -167,17 +171,14 @@ const Jobs2 = () => {
               </div>
 
               <div>
-                <label
-                  htmlFor="ctcAnnual"
-                  className="text-md font-semibold mr-5"
-                >
-                  CTC (Annual)
+                <label htmlFor="Stipend" className="text-md font-semibold mr-5">
+                  Stipend
                 </label>
                 <input
                   type="text"
-                  value={formData.ctcAnnual}
-                  name="ctcAnnual"
-                  id="ctcAnnual"
+                  value={formData.Stipend}
+                  name="Stipend"
+                  id="Stipend"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -185,16 +186,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="experience"
+                  htmlFor="duration"
                   className="text-md font-semibold mr-5"
                 >
-                  Experience
+                  Duration
                 </label>
                 <input
                   type="text"
-                  value={formData.experience}
-                  name="experience"
-                  id="experience"
+                  value={formData.duration}
+                  name="duration"
+                  id="duration"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -216,16 +217,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="jobDescription"
+                  htmlFor="internshipDescription"
                   className="text-md font-semibold mr-5"
                 >
-                  Job Description
+                  Internship Description
                 </label>
                 <textarea
                   type="text"
-                  value={formData.jobDescription}
-                  name="jobDescription"
-                  id="jobDescription"
+                  value={formData.internshipDescription}
+                  name="internshipDescription"
+                  id="internshipDescription"
                   rows="10"
                   cols="50"
                   onChange={onChangeHandler}

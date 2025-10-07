@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import Host from "../Host/Host";
 const Internships = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
+  const button = useSelector((state) => state.button.value);
   return (
     <div
       className="h-760 w-full text-white"
@@ -16,7 +17,7 @@ const Internships = () => {
       {hostSwitch == "on" && (
          <Host/>
       )}
-      <div className={hostSwitch == "on" ? "relative bottom-60 opacity-25" : "opacity-100"}>
+      <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-76 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-16 opacity-100 z-10" : "opacity-100 z-10"}>
         <div className="flex gap-10">
           <Filter />
           <div>
