@@ -64,14 +64,14 @@ const SignUp = ({setSelected}) => {
             style={{backgroundColor: "rgb(20, 20, 20)"}}
         >
             <div
-                className="w-full max-w-md sm:max-w-lg rounded-2xl border-2 border-cyan-300 px-6 sm:px-8 py-6 sm:py-7 mx-auto shadow-xl shadow-black/50 ring-1 ring-cyan-300/20">
+                className="w-full max-w-md sm:max-w-lg rounded-2xl border-2 border-cyan-300 px-6 sm:px-8  sm:py-7 mx-auto shadow-xl shadow-black/50 ring-1 ring-cyan-300/20">
                 <h1 className="text-4xl sm:text-5xl text-amber-50 font-medium mt-1 text-center">
                     Sign Up
                 </h1>
 
                 <form
                     onSubmit={handleSubmission}
-                    className="mt-6 w-full flex flex-col gap-5"
+                    className="mt-4 w-full flex flex-col gap-3"
                     noValidate
                 >
                     <label className="w-full">
@@ -94,7 +94,7 @@ const SignUp = ({setSelected}) => {
 
                     <div className="w-full">
         <span className="block text-amber-50 text-[1.1rem] ml-1.5">
-          Are you a?
+          Are you a ?
         </span>
                         <div
                             className="mt-3 flex w-full justify-evenly items-center text-zinc-300 font-medium text-[1.05rem]">
