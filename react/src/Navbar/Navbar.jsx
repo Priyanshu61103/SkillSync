@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="flex gap-x-5">
           <div onClick={()=>dispatch(setButton())}>
             <button
-              className={button==="off"?"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2":"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2 z-22"}
+              className={button==="off"?"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2":"h-12 w-35 flex justify-center items-center rounded-t-xl text-black font-bold gap-x-2 z-22"}
               style={{ backgroundColor: "#2af6fd" }}
             >
               <img src="../ailogo.png" alt="" className="h-5 w-5" />
