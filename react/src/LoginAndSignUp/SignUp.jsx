@@ -105,7 +105,7 @@ const SignUp = ({setSelected}) => {
                         ${formData.type === "student" ? activeBtn : inactiveBtn}`}
                                 aria-pressed={formData.type === "student"}
                             >
-                                Student
+                                Candidate
                             </button>
 
                             <button
