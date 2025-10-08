@@ -41,4 +41,6 @@ public class InternshipEntity {
     private String company;
     private String domain;
     private String imageUrl;
+
+
 }
