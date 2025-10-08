@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
@@ -7,6 +7,27 @@ import Host from "../Host/Host";
 const Resume = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
+  const [submitResume, setSubmitResume] = useState(0);
+  const [formData, setFormData] = useState({
+    resumeInfo: "",
+  });
+
+  const resumeHandler = () => {
+    submitResume == 1 ? setSubmitResume(0) : setSubmitResume(1);
+    console.log(submitResume);
+  };
+  
+  const handler = (e) => {
+     setFormData({ ...formData, resumeInfo : e.target.files[0]});     
+  }
+  
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    setFormData({
+      resumeInfo:""
+    });
+  }
   return (
     <div
       className="h-845 w-full text-white"
@@ -14,6 +35,7 @@ const Resume = () => {
     >
       <Navbar />
       {hostSwitch == "on" && <Host />}
+
       <div
         className={
           hostSwitch == "on"
@@ -39,7 +61,10 @@ const Resume = () => {
           </h1>
 
           <div>
-            <button className="h-15 w-55 bg-cyan-300 rounded-xl p-5 flex gap-x-1 justify-center items-center">
+            <button
+              className="h-15 w-55 bg-cyan-300 rounded-xl p-5 flex gap-x-1 justify-center items-center"
+              onClick={resumeHandler}
+            >
               <img src="../download.png" alt="" className="h-8 w-8" />
               <h1 className="text-md text-black font-bold">Scan your Resume</h1>
             </button>
@@ -50,6 +75,27 @@ const Resume = () => {
           <img src="../resume.png" alt="" />
         </div>
       </div>
+
+      {submitResume == 1 && (
+        <div className="w-full flex justify-center relative bottom-100 left-20">
+          <div
+            className="h-100 w-200 rounded-xl p-5 border-2 border-cyan-300"
+            style={{ backgroundColor: "rgb(20,20,20)" }}
+          >
+            <h1 className="text-cyan-300 text-4xl font-bold">
+              Scan Your Resume
+            </h1>
+            <div className="h-100 w-200 flex justify-center items-center">
+              <form onSubmit={submitHandler}>
+                <input type="file" name="resumeInfo" className="border-2 border-cyan-300 h-10 w-100 rounded-xl relative right-10" onChange={handler}/>
+                <button className="h-15 w-55 bg-cyan-300 rounded-xl p-5 flex gap-x-1 justify-center items-center relative left-10 top-10" >
+                  <h1 className="text-md text-black font-bold">Submit</h1>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div
         className={
