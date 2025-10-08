@@ -6,51 +6,59 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setHostSwitch } from "../Redux/Slice/hostSlice/hostSlice";
 import Host from "../Host/Host";
+import { createJob } from "../services/jobService";
+import { toast } from "react-toastify";
 const Jobs2 = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
   const dispatch = useDispatch();
   dispatch(() => setHostSwitch());
-  const [formData, setFormData] = useState({
-    companyName: "",
-    emailId: "",
-    companyLogo: "",
-    jobDomain: "",
-    jobType: "",
-    location: "",
-    ctcAnnual: "",
-    experience: "",
-    applyBy: "",
-    jobDescription: "",
-    eligiblity: "",
-    skills: "",
-    about: "",
-    numberOfOpenings: "",
+  const [postJobData, setPostJobData] = useState({
+    title: "",
+    description:"",
+    eligibility:"",
+    skills:"",
+    about:"",
+    numberOfOpenings:"",
+    location:"",
+    ctc: "",
+    modeOfJob:"",
+    experience:"",
+    applyBy:"",
+    startDate:"",
+    company:"",
+    domain:"",
+    imageFile:"",
   });
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
 
-    setFormData({ ...formData, [name]: value });
+    setPostJobData({ ...postJobData, [name]: value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      companyName: "",
-      emailId: "",
-      jobDomain: "",
-      jobType: "",
-      location: "",
-      ctcAnnual: "",
-      experience: "",
-      applyBy: "",
-      jobDescription: "",
-      eligiblity: "",
-      skills: "",
-      about: "",
-      numberOfOpenings: "",
+    console.log(postJobData);
+    const responseMessage  = await createJob(postJobData);
+    toast.success(responseMessage);
+
+    setPostJobData({
+      title: "",
+    description:"",
+    eligibility:"",
+    skills:"",
+    about:"",
+    numberOfOpenings:"",
+    location:"",
+    ctc: "",
+    modeOfJob:"",
+    experience:"",
+    applyBy:"",
+    startDate:"",
+    company:"",
+    domain:"",
+    imageFile:"",
     });
   };
   return (
@@ -63,7 +71,7 @@ const Jobs2 = () => {
         {hostSwitch == "on" && <Host />}
         <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-76 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-16 opacity-100 z-10" : "opacity-100 z-10"}>
           <h1 className="text-cyan-200 font-semibold text-4xl ml-15">
-            Host an Opportunity
+            Host a Job
           </h1>
           <p className="text-gray-200 text-sm mt-1 ml-15">
             Hire people who will make your Company Grow
@@ -72,78 +80,80 @@ const Jobs2 = () => {
             <form className="flex gap-y-10 flex-wrap" onSubmit={submitHandler}>
               <div>
                 <label
-                  htmlFor="companyName"
+                  htmlFor="company"
                   className="text-md font-semibold mr-5"
                 >
                   Company Name
                 </label>
                 <input
                   type="text"
-                  value={formData.companyName}
-                  name="companyName"
-                  id="companyName"
+                  value={postJobData.company}
+                  name="company"
+                  id="company"
+                  onChange={onChangeHandler}
+                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="title"
+                  className="text-md font-semibold mr-5"
+                >
+                  Title of Job
+                </label>
+                <input
+                  type="text"
+                  value={postJobData.title}
+                  name="title"
+                  id="title"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
        
               <div>
-                <label htmlFor="emailId" className="text-md font-semibold mr-5">
-                  Email id
+                <label
+                  htmlFor="imageFile"
+                  className="text-md font-semibold mr-5"
+                >
+                  Company Logo 
                 </label>
                 <input
-                  type="email"
-                  value={formData.emailId}
-                  name="emailId"
-                  id="emailId"
-                  onChange={onChangeHandler}
+                  type="file"
+                  name="imageFile"
+                  id="imageFile"
+                  onChange={(e) => setPostJobData({ ...postJobData , imageFile: e.target.files[0]})}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
 
               <div>
                 <label
-                  htmlFor="companyLogo"
+                  htmlFor="domain"
                   className="text-md font-semibold mr-5"
                 >
-                  Company Logo (Link)
+                  Internship Domain
                 </label>
                 <input
                   type="text"
-                  value={formData.companyLogo}
-                  name="companyLogo"
-                  id="companyLogo"
+                  value={postJobData.domain}
+                  name="domain"
+                  id="domain"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="jobDomain"
-                  className="text-md font-semibold mr-5"
-                >
-                  Job Domain
+                <label htmlFor="modeOfJob" className="text-md font-semibold mr-5">
+                  Internship Mode
                 </label>
                 <input
                   type="text"
-                  value={formData.jobDomain}
-                  name="jobDomain"
-                  id="jobDomain"
-                  onChange={onChangeHandler}
-                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="jobType" className="text-md font-semibold mr-5">
-                  Type of Job
-                </label>
-                <input
-                  type="text"
-                  value={formData.jobType}
-                  name="jobType"
-                  id="jobType"
+                  value={postJobData.modeOfJob}
+                  name="modeOfJob"
+                  id="modeOfJob"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -158,7 +168,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.location}
+                  value={postJobData.location}
                   name="location"
                   id="location"
                   onChange={onChangeHandler}
@@ -167,17 +177,31 @@ const Jobs2 = () => {
               </div>
 
               <div>
+                <label htmlFor="startDate" className="text-md font-semibold mr-5">
+                  Start Date
+                </label>
+                <input
+                  type="text"
+                  value={postJobData.startDate}
+                  name="startDate"
+                  id="startDate"
+                  onChange={onChangeHandler}
+                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
+                />
+              </div>
+
+              <div>
                 <label
-                  htmlFor="ctcAnnual"
+                  htmlFor="ctc"
                   className="text-md font-semibold mr-5"
                 >
                   CTC (Annual)
                 </label>
                 <input
                   type="text"
-                  value={formData.ctcAnnual}
-                  name="ctcAnnual"
-                  id="ctcAnnual"
+                  value={postJobData.ctc}
+                  name="ctc"
+                  id="ctc"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -192,7 +216,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.experience}
+                  value={postJobData.experience}
                   name="experience"
                   id="experience"
                   onChange={onChangeHandler}
@@ -206,7 +230,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.applyBy}
+                  value={postJobData.applyBy}
                   name="applyBy"
                   id="applyBy"
                   onChange={onChangeHandler}
@@ -216,16 +240,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="jobDescription"
+                  htmlFor="description"
                   className="text-md font-semibold mr-5"
                 >
                   Job Description
                 </label>
                 <textarea
                   type="text"
-                  value={formData.jobDescription}
-                  name="jobDescription"
-                  id="jobDescription"
+                  value={postJobData.description}
+                  name="description"
+                  id="description"
                   rows="10"
                   cols="50"
                   onChange={onChangeHandler}
@@ -235,16 +259,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="eligiblity"
+                  htmlFor="eligibility"
                   className="text-md font-semibold mr-5"
                 >
-                  Eligiblity
+                  Eligibility
                 </label>
                 <textarea
                   type="text"
-                  value={formData.eligiblity}
-                  name="eligiblity"
-                  id="eligiblity"
+                  value={postJobData.eligibility}
+                  name="eligibility"
+                  id="eligibility"
                   rows="10"
                   cols="50"
                   onChange={onChangeHandler}
@@ -258,7 +282,7 @@ const Jobs2 = () => {
                 </label>
                 <textarea
                   type="text"
-                  value={formData.skills}
+                  value={postJobData.skills}
                   name="skills"
                   id="skills"
                   rows="10"
@@ -270,11 +294,11 @@ const Jobs2 = () => {
 
               <div>
                 <label htmlFor="about" className="text-md font-semibold mr-5">
-                  About
+                  About Company
                 </label>
                 <textarea
                   type="text"
-                  value={formData.about}
+                  value={postJobData.about}
                   name="about"
                   id="about"
                   rows="10"
@@ -293,7 +317,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.numberOfOpenings}
+                  value={postJobData.numberOfOpenings}
                   name="numberOfOpenings"
                   id="numberOfOpenings"
                   onChange={onChangeHandler}
