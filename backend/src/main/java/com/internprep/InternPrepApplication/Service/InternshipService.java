@@ -23,10 +23,16 @@ public class InternshipService {
         String imageUrl = cloudinaryService.uploadFile(internshipEntityDto.getImageFile());
         InternshipEntity internshipEntity = InternshipEntity.builder()
         .company(internshipEntityDto.getCompany())
+        .about(internshipEntityDto.getAbout())
+        .applyBy(internshipEntityDto.getApplyBy())
+        .eligibility(internshipEntityDto.getEligibility())
+        .modeOfInternship(internshipEntityDto.getModeOfInternship())
+        .skills(internshipEntityDto.getSkills())
+        .numberOfOpenings(internshipEntityDto.getNumberOfOpenings())
         .description(internshipEntityDto.getDescription())
         .duration(internshipEntityDto.getDuration())
         .imageUrl(imageUrl)
-        .industry(internshipEntityDto.getIndustry())
+        .domain(internshipEntityDto.getDomain())
         .location(internshipEntityDto.getLocation())
         .startDate(internshipEntityDto.getStartDate())
         .stipend(internshipEntityDto.getStipend())
@@ -37,7 +43,7 @@ public class InternshipService {
             return "Internship created successfully";
         }
         else{
-            return "Internship creation failed";
+            return "Failed to create Internship";
         }
     }
 
