@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class InternshipEntityDto {
+public class JobEntityDto {
     private String title;
     private String description;
     private String eligibility;
@@ -21,9 +21,9 @@ public class InternshipEntityDto {
     private String about;
     private Integer numberOfOpenings;
     private String location;
-    private String stipend;
-    private String modeOfInternship;
-    private String duration;
+    private String ctc;
+    private String modeOfJob;
+    private String experience;
     private LocalDate applyBy;
     private LocalDate startDate;
     private String company;

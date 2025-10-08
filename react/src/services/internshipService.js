@@ -6,23 +6,33 @@ export const createInternship = async (postInternshipData) => {
     const formData = new FormData();
     formData.append("title" , postInternshipData.title);
     formData.append("description" , postInternshipData.description);
+    formData.append("eligibility" , postInternshipData.eligibility);
+    formData.append("skills" , postInternshipData.skills);
+    formData.append("about" , postInternshipData.about);
+    formData.append("numberOfOpenings" , postInternshipData.numberOfOpenings);
     formData.append("location" , postInternshipData.location);
     formData.append("stipend" , postInternshipData.stipend);
+    formData.append("modeOfInternship" , postInternshipData.modeOfInternship);
+    formData.append("applyBy" , postInternshipData.applyBy);
     formData.append("duration" , postInternshipData.duration);
     formData.append("startDate" , postInternshipData.startDate);
     formData.append("company" , postInternshipData.company);
-    formData.append("industry" , postInternshipData.industry);
+    formData.append("domain" , postInternshipData.domain);
     formData.append("imageFile" , postInternshipData.imageFile);
 
     try{
         const response = await axios.post(
             API_URL+"/createInternship" , 
-            formData
-        );
-        if (response.data.id != null && response.data.imageUrl != null){
-            return "Internship created successfully";
+            formData,{
+            headers: {
+                "Content-Type": "multipart/form-data",
+              },
+              responseType: "text",
+    });
+        if(response.status == 201){
+            return response.data;
         }else{
-            return "Error creating internship";
+            return "ERROR CREATING";
         }
     }
     catch(error){

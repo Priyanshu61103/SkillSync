@@ -6,51 +6,59 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setHostSwitch } from "../Redux/Slice/hostSlice/hostSlice";
 import Host from "../Host/Host";
+import { createInternship } from "../services/internshipService";
+import { toast } from "react-toastify";
 const Jobs2 = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
   const dispatch = useDispatch();
   dispatch(() => setHostSwitch());
-  const [formData, setFormData] = useState({
-    companyName: "",
-    emailId: "",
-    companyLogo:"",
-    internshipDomain: "",
-    internshipType: "",
-    location: "",
-    Stipend: "",
-    duration: "",
-    applyBy: "",
-    internshipDescription: "",
-    eligiblity: "",
-    skills: "",
-    about: "",
-    numberOfOpenings: "",
+  const [postInternshipData, setPostInternshipData] = useState({
+    title: "",
+    description:"",
+    eligibility:"",
+    skills:"",
+    about:"",
+    numberOfOpenings:"",
+    location:"",
+    stipend: "",
+    modeOfInternship:"",
+    duration:"",
+    applyBy:"",
+    startDate:"",
+    company:"",
+    domain:"",
+    imageFile:"",
   });
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
 
-    setFormData({ ...formData, [name]: value });
+    setPostInternshipData({ ...postInternshipData, [name]: value });
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      companyName: "",
-      emailId: "",
-      internshipDomain: "",
-      internshipType: "",
-      location: "",
-      Stipend: "",
-      duration: "",
-      applyBy: "",
-      internshipDescription: "",
-      eligiblity: "",
-      skills: "",
-      about: "",
-      numberOfOpenings: "",
+    console.log(postInternshipData);
+    const responseMessage = await createInternship(postInternshipData);
+    toast.success(responseMessage);
+
+    setPostInternshipData({
+      title: "",
+    description:"",
+    eligibility:"",
+    skills:"",
+    about:"",
+    numberOfOpenings:"",
+    location:"",
+    stipend: "",
+    modeOfInternship:"",
+    duration:"",
+    applyBy:"",
+    startDate:"",
+    company:"",
+    domain:"",
+    imageFile:"",
     });
   };
   return (
@@ -63,91 +71,89 @@ const Jobs2 = () => {
         {hostSwitch == "on" && <Host />}
         <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-76 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-16 opacity-100 z-10" : "opacity-100 z-10"}>
           <h1 className="text-cyan-200 font-semibold text-4xl ml-15">
-            Host an Opportunity
+            Host a Internship
           </h1>
           <p className="text-gray-200 text-sm mt-1 ml-15">
             Hire people who will make your Company Grow
           </p>
-          <div className="ml-15 my-10 z-20">
+          <div className="ml-15 mt-10 z-20">
             <form className="flex gap-y-10 flex-wrap" onSubmit={submitHandler}>
               <div>
                 <label
-                  htmlFor="companyName"
+                  htmlFor="company"
                   className="text-md font-semibold mr-5"
                 >
                   Company Name
                 </label>
                 <input
                   type="text"
-                  value={formData.companyName}
-                  name="companyName"
-                  id="companyName"
+                  value={postInternshipData.company}
+                  name="company"
+                  id="company"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
 
               <div>
-                <label htmlFor="emailId" className="text-md font-semibold mr-5">
-                  Email id
-                </label>
-                <input
-                  type="email"
-                  value={formData.emailId}
-                  name="emailId"
-                  id="emailId"
-                  onChange={onChangeHandler}
-                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
-                />
-              </div>
-              
-              <div>
                 <label
-                  htmlFor="companyLogo"
+                  htmlFor="title"
                   className="text-md font-semibold mr-5"
                 >
-                  Company Logo (Link)
+                  Title of Internship
                 </label>
                 <input
                   type="text"
-                  value={formData.companyLogo}
-                  name="companyLogo"
-                  id="companyLogo"
+                  value={postInternshipData.title}
+                  name="title"
+                  id="title"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
-
+       
+              <div>
+                <label
+                  htmlFor="imageFile"
+                  className="text-md font-semibold mr-5"
+                >
+                  Company Logo 
+                </label>
+                <input
+                  type="file"
+                  name="imageFile"
+                  id="imageFile"
+                  onChange={(e) => setPostInternshipData({ ...postInternshipData , imageFile: e.target.files[0]})}
+                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
+                />
+              </div>
 
               <div>
                 <label
-                  htmlFor="internshipDomain"
+                  htmlFor="domain"
                   className="text-md font-semibold mr-5"
                 >
                   Internship Domain
                 </label>
                 <input
                   type="text"
-                  value={formData.internshipDomain}
-                  name="internshipDomain"
-                  id="internshipDomain"
+                  value={postInternshipData.domain}
+                  name="domain"
+                  id="domain"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="internshipType"
-                  className="text-md font-semibold mr-5"
-                >
-                  Type of Internship
+                <label htmlFor="modeOfInternship" className="text-md font-semibold mr-5">
+                  Mode Of Internship
                 </label>
                 <input
                   type="text"
-                  value={formData.internshipType}
-                  name="internshipType"
-                  id="internshipType"
+                  value={postInternshipData.modeOfInternship}
+                  name="modeOfInternship"
+                  id="modeOfInternship"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -162,7 +168,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.location}
+                  value={postInternshipData.location}
                   name="location"
                   id="location"
                   onChange={onChangeHandler}
@@ -171,14 +177,14 @@ const Jobs2 = () => {
               </div>
 
               <div>
-                <label htmlFor="Stipend" className="text-md font-semibold mr-5">
-                  Stipend
+                <label htmlFor="startDate" className="text-md font-semibold mr-5">
+                  Start Date
                 </label>
                 <input
                   type="text"
-                  value={formData.Stipend}
-                  name="Stipend"
-                  id="Stipend"
+                  value={postInternshipData.startDate}
+                  name="startDate"
+                  id="startDate"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -186,16 +192,33 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="duration"
+                  htmlFor="stipend"
                   className="text-md font-semibold mr-5"
                 >
-                  Duration
+                  Stipend
                 </label>
                 <input
                   type="text"
-                  value={formData.duration}
-                  name="duration"
-                  id="duration"
+                  value={postInternshipData.stipend}
+                  name="stipend"
+                  id="stipend"
+                  onChange={onChangeHandler}
+                  className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="experience"
+                  className="text-md font-semibold mr-5"
+                >
+                  Experience
+                </label>
+                <input
+                  type="text"
+                  value={postInternshipData.experience}
+                  name="experience"
+                  id="experience"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
@@ -207,7 +230,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.applyBy}
+                  value={postInternshipData.applyBy}
                   name="applyBy"
                   id="applyBy"
                   onChange={onChangeHandler}
@@ -217,16 +240,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="internshipDescription"
+                  htmlFor="description"
                   className="text-md font-semibold mr-5"
                 >
                   Internship Description
                 </label>
                 <textarea
                   type="text"
-                  value={formData.internshipDescription}
-                  name="internshipDescription"
-                  id="internshipDescription"
+                  value={postInternshipData.description}
+                  name="description"
+                  id="description"
                   rows="10"
                   cols="50"
                   onChange={onChangeHandler}
@@ -236,16 +259,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="eligiblity"
+                  htmlFor="eligibility"
                   className="text-md font-semibold mr-5"
                 >
-                  Eligiblity
+                  Eligibility
                 </label>
                 <textarea
                   type="text"
-                  value={formData.eligiblity}
-                  name="eligiblity"
-                  id="eligiblity"
+                  value={postInternshipData.eligibility}
+                  name="eligibility"
+                  id="eligibility"
                   rows="10"
                   cols="50"
                   onChange={onChangeHandler}
@@ -259,7 +282,7 @@ const Jobs2 = () => {
                 </label>
                 <textarea
                   type="text"
-                  value={formData.skills}
+                  value={postInternshipData.skills}
                   name="skills"
                   id="skills"
                   rows="10"
@@ -271,11 +294,11 @@ const Jobs2 = () => {
 
               <div>
                 <label htmlFor="about" className="text-md font-semibold mr-5">
-                  About
+                  About Company
                 </label>
                 <textarea
                   type="text"
-                  value={formData.about}
+                  value={postInternshipData.about}
                   name="about"
                   id="about"
                   rows="10"
@@ -294,7 +317,7 @@ const Jobs2 = () => {
                 </label>
                 <input
                   type="text"
-                  value={formData.numberOfOpenings}
+                  value={postInternshipData.numberOfOpenings}
                   name="numberOfOpenings"
                   id="numberOfOpenings"
                   onChange={onChangeHandler}

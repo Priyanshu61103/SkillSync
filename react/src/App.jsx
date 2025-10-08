@@ -6,9 +6,11 @@ import Internships from "./Internships/Internships";
 import AuthPage from "./LoginAndSignUp/AuthPage.jsx";
 import { store } from "./Redux/Store/store"
 import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import Jobs2 from "./Jobs Host/Jobs2";
 import Internships2 from "./Internships Host/Internships2"
 import Resume from "./Resume/Resume.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -23,6 +25,16 @@ const App = () => {
           <Route path="/Auth" element={<AuthPage/>}></Route>
           <Route path="/resume" element={<Resume/>}></Route>
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnHover
+          draggable
+          theme="dark" 
+        />
       </Router>
     </Provider>
   );

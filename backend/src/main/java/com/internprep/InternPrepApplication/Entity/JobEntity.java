@@ -1,6 +1,7 @@
 package com.internprep.InternPrepApplication.Entity;
 
 import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -12,12 +13,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Data
-
-public class InternshipEntity {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class JobEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
@@ -33,9 +33,9 @@ public class InternshipEntity {
     private String about;
     private Integer numberOfOpenings;
     private String location;
-    private String stipend;
-    private String modeOfInternship;
-    private String duration;
+    private String ctc;
+    private String modeOfJob;
+    private String experience;
     private LocalDate applyBy;
     private LocalDate startDate;
     private String company;
