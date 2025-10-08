@@ -1,14 +1,23 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navbar from "../Navbar/Navbar.jsx";
 import {PeopleChatLogo} from "../Jobs/PeopleChatLogo.jsx";
 import JobDescription from "./JobDescription.jsx";
+import ResumeInput from "./ResumeInput.jsx";
 
 const Interview = () => {
-    const [interviews, setInterviews] = useState([]);
+    const [interviews, setInterviews] = useState([1]);
     const [openDialog, setOpenDialog] = useState(false);
+    const[formData,setFormData] = useState({jobTitle:"",jobDescription:""});
+    const[resumeFile,setResumeFile] = useState(null);
     const onClose = () => {
         setOpenDialog(false);
     }
+    useEffect(()=>{
+        if(selectedTab!=="resume") return
+        alert("file sumbitted");
+        //api class for the interview card which is added to interviews and displayed in the box
+    },[resumeFile])
+    console.log(resumeFile);
     const active = "underline underline-offset-3 bg-zinc-700";
     const [selectedTab, setSelectedTab] = useState("");
     return (<div style={{backgroundColor: "rgb(25,25,25)"}} className='max-h-full min-h-screen min-w-screen'>
@@ -85,8 +94,8 @@ const Interview = () => {
 
                         </div>
                         {selectedTab === "resume" ?
-                            <div className="text-center text-4xl text-white">Resume Upload</div> :
-                            <div className="w-[95%] h-full"><JobDescription/></div>}
+                            <div className="pt-20"><ResumeInput setResumeFile={setResumeFile} onClose={onClose} /></div> :
+                            <div className="w-[95%] h-full"><JobDescription onClose={onClose} setFormData={setFormData} /></div>}
                     </>
                 </div>
             </div>

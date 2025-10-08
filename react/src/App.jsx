@@ -9,6 +9,7 @@ import {store} from "./Redux/Store/store.js";
 import Resume from "./Resume/Resume.jsx";
 import Jobs2 from "./Jobs Host/Jobs2.jsx";
 import Internships2 from "./Internships Host/Internships2.jsx"
+import Interview from "./Interview/Interview.jsx";
 const App = () => {
     return (
         <Provider store={store}>
@@ -21,6 +22,7 @@ const App = () => {
                     <Route path="/resume" element={<Resume/>}></Route>
                     <Route path="/jobhost" element={<Jobs2/>}></Route>
                     <Route path="/internshiphost" element={<Internships2/>}></Route>
+                    <Route path="ai-Interview" element={<Interview/>}></Route>
                 </Routes>
 
         </Router>
