@@ -818,9 +818,11 @@ const Hero = () => {
                   <h1 className="text-xl font-semibold text-cyan-300">
                     AI-Driven Mock Interview
                   </h1>
-                  <button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
+                    <Link to="/ai-interview" >
+                  <button className="h-10 cursor-pointer w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
                     Start Test
                   </button>
+                    </Link>
                 </div>
               </div>
 

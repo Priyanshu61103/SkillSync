@@ -36,5 +36,5 @@ public class InternshipEntity {
     private String industry;
     private String imageUrl;
 
-    
+
 }
