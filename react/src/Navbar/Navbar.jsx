@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
         <Link to="/jobpostings">
           <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
-            <h1>Job Postings</h1>
+            <h1>Jobs</h1>
           </div>
         </Link>
         <Link to="/internships">
@@ -46,13 +46,21 @@ const Navbar = () => {
               <h1>AI Features</h1>
             </button>
           </div>
+          {/* <div>
+            <button
+            className="h-12 w-25 flex justify-center items-center rounded-xl text-black font-bold gap-x-2"
+            style={{ backgroundColor: "#2af6fd" }}
+            onClick={() => dispatch(setHostSwitch())}>
+              <img src="../ailogo.png" alt="" className="h-5 w-5" />
+              <h1>AI Features</h1>
+              </button>
+          </div> */}
 
           <div>
             <button
               className="h-12 w-25 flex justify-center items-center rounded-xl text-black font-bold gap-x-2"
               style={{ backgroundColor: "#2af6fd" }}
-              onClick={() => dispatch(setHostSwitch())}
-            >
+              onClick={() => dispatch(setHostSwitch())}>
               <img src="../plus-icon.png" alt="" className="h-5 w-5" />
               <h1>Host</h1>
             </button>
