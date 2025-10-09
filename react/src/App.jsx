@@ -10,7 +10,10 @@ import { ToastContainer } from "react-toastify";
 import Jobs2 from "./Jobs Host/Jobs2";
 import Internships2 from "./Internships Host/Internships2";
 import Resume from "./Resume/Resume.jsx";
+import Interview from "./Interview/Interview.jsx"
+import AiSetup from "./Interview/Aisetup.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import Details from "./Details/Details.jsx";
 
 const App = () => {
   return (
@@ -25,8 +28,10 @@ const App = () => {
           <Route path="/jobhost" element={<Jobs2 />}></Route>
           <Route path="/internshiphost" element={<Internships2 />}></Route>
           <Route path="/aiinterview" element={<Interview />}></Route>
+          <Route path="/aisetup" element={<AiSetup/>}></Route>
+          <Route path="/details" element={<Details/>}></Route>
         </Routes>
-        <ToastContainer
+        {/* <ToastContainer
           position="top-right"
           autoClose={3000}
           hideProgressBar={false}
@@ -35,7 +40,7 @@ const App = () => {
           pauseOnHover
           draggable
           theme="dark"
-        />
+        /> */}
       </Router>
     </Provider>
   );

@@ -81,7 +81,7 @@ const Navbar = () => {
               className="h-8 w-35 flex justify-center items-center border-b-2 border-b-gray-200"
               style={{ backgroundColor: "rgb(28,28,28)" }}
             >
-                <Link to="/ai-interview" >
+                <Link to="/aiinterview" >
               AI Interview
                 </Link>
             </div>

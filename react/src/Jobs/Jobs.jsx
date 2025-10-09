@@ -5,6 +5,7 @@ import Footer from "../Footer/Footer";
 import Filter from "../Filter/Filter";
 import { useSelector } from "react-redux";
 import Host from "../Host/Host";
+import { Link } from "react-router-dom";
 const Jobs = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
@@ -112,7 +113,7 @@ const Jobs = () => {
 
               <div className="flex gap-2 mt-5">
                 <img src="../location_image.png" alt="" className="h-4 w-4" />
-                <p className="text-xs text-gray-300">Bengaluru2</p>
+                <p className="text-xs text-gray-300">Bengaluru4</p>
               </div>
 
               <div className="flex justify-between mt-2">
@@ -126,9 +127,9 @@ const Jobs = () => {
                   <p className="text-xs text-gray-300">Posted 1 week ago</p>
                 </div>
                 <div>
-                  <button className="h-8 w-25 bg-cyan-300 text-black text-sm font-semibold rounded-xl relative bottom-2">
+                  <Link to="/details"><button className="h-8 w-25 bg-cyan-300 text-black text-sm font-semibold rounded-xl relative bottom-2">
                     View Details
-                  </button>
+                  </button></Link>
                 </div>
               </div>
             </div>

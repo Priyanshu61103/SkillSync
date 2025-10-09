@@ -1,6 +1,7 @@
 import React, {useRef} from 'react'
 
 const ResumeInput = ({setResumeFile,onClose}) => {
+    const fileInput = document.querySelector("#file_input");
     const fileRef = useRef(null);
     const handleFileSubmit = (event)=>{
         event.preventDefault();
@@ -11,7 +12,6 @@ const ResumeInput = ({setResumeFile,onClose}) => {
         setResumeFile(file[0]);
         fileRef.current.value="";
         onClose();
-
     }
     return (
         <form onSubmit={handleFileSubmit} className="flex  flex-col   items-center gap-5 ">
