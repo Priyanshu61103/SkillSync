@@ -209,16 +209,16 @@ const Jobs2 = () => {
 
               <div>
                 <label
-                  htmlFor="experience"
+                  htmlFor="duration"
                   className="text-md font-semibold mr-5"
                 >
-                  Experience
+                  Duration
                 </label>
                 <input
                   type="text"
-                  value={postInternshipData.experience}
-                  name="experience"
-                  id="experience"
+                  value={postInternshipData.duration}
+                  name="duration"
+                  id="duration"
                   onChange={onChangeHandler}
                   className="border-2 border-cyan-200 rounded-xl mt-2 outline-0 p-4 w-310"
                 />
