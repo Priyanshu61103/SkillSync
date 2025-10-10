@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
         <Link to="/jobpostings">
           <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
-            <h1>Job Postings</h1>
+            <h1>Jobs</h1>
           </div>
         </Link>
         <Link to="/internships">
@@ -39,7 +39,7 @@ const Navbar = () => {
         <div className="flex gap-x-5">
           <div onClick={()=>dispatch(setButton())}>
             <button
-              className={button==="off"?"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2":"h-12 w-35 flex justify-center items-center rounded-t-xl text-black font-bold gap-x-2 z-22"}
+              className={button==="off"?"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2":"h-12 w-35 flex justify-center items-center rounded-xl text-black font-bold gap-x-2 z-22"}
               style={{ backgroundColor: "#2af6fd" }}
             >
               <img src="../ailogo.png" alt="" className="h-5 w-5" />
@@ -51,8 +51,7 @@ const Navbar = () => {
             <button
               className="h-12 w-25 flex justify-center items-center rounded-xl text-black font-bold gap-x-2"
               style={{ backgroundColor: "#2af6fd" }}
-              onClick={() => dispatch(setHostSwitch())}
-            >
+              onClick={() => dispatch(setHostSwitch())}>
               <img src="../plus-icon.png" alt="" className="h-5 w-5" />
               <h1>Host</h1>
             </button>
@@ -76,8 +75,8 @@ const Navbar = () => {
           </Link>
         </div>
       </div>
-       <div className={button == "on" ? "relative bottom-11 left-183  z-30" : "hidden"}>
-            <div
+       <div className={button == "on" ? "h-50 w-100 rounded-xl relative bottom-8 left-170 z-30" : "hidden"} style={{ backgroundColor: "rgb(20, 20, 20)"}}>
+            {/* <div
               className="h-8 w-35 flex justify-center items-center border-b-2 border-b-gray-200"
               style={{ backgroundColor: "rgb(28,28,28)" }}
             >
@@ -90,7 +89,31 @@ const Navbar = () => {
               style={{ backgroundColor: "rgb(28,28,28)" }}
             >
               Resume Analysis
-            </div>
+            </div> */}
+             <Link to="/aiinterview"><div className="h-25 w-90 m-4 border-b-2 border-b-cyan-200 text-gray-300 text-xl flex items-center justify-center">
+                  <div className="flex gap-5">
+                      <img src="ailogo2.png" alt="" className="h-12 w-12"/>
+                      <div>
+                         <h1 className="font-semibold">AI-Mock Interview</h1>
+                         <p className="text-xs"> Master your concepts with AI-Powered full-length mock tests</p>
+                      </div> 
+                      <div>
+                         <img src="../plus-icon-2.png" alt="" className="h-6 w-8 relative top-4"/>
+                      </div>
+                  </div>
+              </div></Link> 
+               <Link to="/resume"><div className="h-25 w-90 mx-4 text-gray-300 text-xl flex justify-center">
+                  <div className="flex gap-5">
+                      <img src="ailogo2.png" alt="" className="h-12 w-12"/>
+                      <div>
+                         <h1 className="font-semibold">Resume Analysis</h1>
+                         <p className="text-xs"> Gives you the most concise Resume Feedback</p>
+                      </div> 
+                       <div>
+                         <img src="../plus-icon-2.png" alt="" className="h-6 w-6 relative top-4"/>
+                      </div>
+                  </div>
+              </div></Link>
       </div>
     </div>
   );

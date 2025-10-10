@@ -6,7 +6,7 @@ const Footer = () => {
    const button = useSelector((state) => state.button.value);
   return (
     <div
-      className={hostSwitch == "on" ? button==="on"?"relative bottom-76 h-135 w-full opacity-25":"relative bottom-60 h-135 w-full opacity-25" : button==="on"?"z-20 relative bottom-10 h-135 w-full opacity-100":"z-20 h-135 w-full opacity-100"}
+      className={hostSwitch == "on" ? button==="on"?"relative bottom-110 h-135 w-full opacity-25":"relative bottom-60 h-135 w-full opacity-25" : button==="on"?"z-20 relative bottom-44 h-135 w-full opacity-25":"z-20 h-135 w-full opacity-100"}
       style={{ backgroundColor: "rgb(20, 20 , 20)" }}
     >
       <div className="flex gap-x-12">

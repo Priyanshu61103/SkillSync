@@ -7,6 +7,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setResumeInput } from "../Redux/Slice/resumeSlice/resumeSlice.js";
 import { useNavigate } from "react-router-dom";
+import Host from "../Host/Host.jsx";
+import Testimonials from "../Testimonials/Testimonials.jsx";
+import Footer from "../Footer/Footer.jsx";
 const Interview = () => {
   const [interviews, setInterviews] = useState([1]);
   const [openDialog, setOpenDialog] = useState(false);
@@ -17,6 +20,8 @@ const Interview = () => {
     jobTitle: "",
     jobDescription: "",
   });
+  const hostSwitch = useSelector((state) => state.hostSwitch.value);
+  const button = useSelector((state) => state.button.value);
   const [resumeFile, setResumeFile] = useState(null);
   const onClose = () => {
     setOpenDialog(false);
@@ -38,7 +43,16 @@ const Interview = () => {
       className="max-h-full min-h-screen min-w-screen"
     >
       <Navbar />
-      <div className="flex flex-col gap-3">
+      {hostSwitch == "on" && <Host />}
+      <div className={
+          hostSwitch == "on"
+            ? button == "on"
+              ? "relative bottom-110 opacity-25 z-10 flex flex-col gap-3"
+              : "relative bottom-60 opacity-25 z-10 flex flex-col gap-3"
+            : button == "on"
+            ? "relative bottom-50 z-10 flex flex-col gap-3 opacity-25"
+            : "opacity-100 z-10 flex flex-col gap-3"
+        }>
         <div className="w-2/3 flex justify-between items-center mx-auto mt-7">
           <div>
             <div className="text-white font-medium text-[1.2rem] ">
@@ -149,6 +163,8 @@ const Interview = () => {
           </div>
         </div>
       )}
+      <Testimonials/>
+      <Footer/>
     </div>
   );
 };

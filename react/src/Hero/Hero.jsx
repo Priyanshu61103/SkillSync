@@ -14,7 +14,7 @@ const Hero = () => {
       {hostSwitch == "on" && (
         <Host/>
       )}
-      <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-76 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-16 opacity-100 z-10" : "opacity-100 z-10"}>
+      <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-110 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-50 opacity-25 z-10" : "opacity-100 z-10"}>
         <div
           className={
             "h-125 w-full flex items-center p-10 justify-around z-0"

@@ -48,8 +48,13 @@ export const getAllInternships = async() =>{
     const response = await axios.get(
         API_URL+"/getAllInternships" 
     );
+    console.log(response.data);
     return response.data;
+    
     }catch(error){
+        console.error('Error fetching food list:', error);
+        console.error('Error response:', error.response?.data);
+        console.error('Error status:', error.response?.status);
         throw error;
     }
 };

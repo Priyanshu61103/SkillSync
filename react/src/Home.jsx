@@ -6,7 +6,7 @@ import Testimonials from './Testimonials/Testimonials'
 
 const Home = () => {
   return (
-    <div className="h-760 w-full text-white" style={{backgroundColor:"rgb(25,25,25)"}}>
+    <div className="h-770 w-full text-white" style={{backgroundColor:"rgb(25,25,25)"}}>
         <Navbar/>
         <Hero/>
         <Testimonials/>

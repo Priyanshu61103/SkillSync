@@ -4,12 +4,14 @@ import Testimonials from "../Testimonials/Testimonials";
 import Footer from "../Footer/Footer";
 import { useSelector } from "react-redux";
 import Host from "../Host/Host";
+import { analyzeResume } from "../services/resumeService";
+import { toast } from "react-toastify";
 const Resume = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
   const [submitResume, setSubmitResume] = useState(0);
-  const [formData, setFormData] = useState({
-    resumeInfo: "",
+  const [resumeAnalyzerData, setresumeAnalyzerData] = useState({
+    resume: "",
   });
 
   const resumeHandler = () => {
@@ -18,14 +20,18 @@ const Resume = () => {
   };
   
   const handler = (e) => {
-     setFormData({ ...formData, resumeInfo : e.target.files[0]});     
+     setresumeAnalyzerData({ ...resumeAnalyzerData, resume : e.target.files[0]});     
   }
   
-  const submitHandler = (e) => {
+  const submitHandler = async(e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      resumeInfo:""
+    console.log(resumeAnalyzerData);
+    const responseMessage = await analyzeResume(resumeAnalyzerData);
+    toast.success("Resume Analyzed Successfully")
+    console.log(responseMessage);
+
+    setresumeAnalyzerData({
+      resume:""
     });
   }
   return (
@@ -40,10 +46,10 @@ const Resume = () => {
         className={
           hostSwitch == "on"
             ? button == "on"
-              ? "relative bottom-81 opacity-25 z-10 flex gap-10 m-7 mx-20"
+              ? "relative bottom-115 opacity-25 z-10 flex gap-10 m-7 mx-20"
               : "relative bottom-65 opacity-25 z-10 flex gap-10 m-7 mx-20"
             : button == "on"
-            ? "relative bottom-21 opacity-100 z-10 flex gap-10 m-7 mx-20"
+            ? "relative bottom-55 opacity-25 z-10 flex gap-10 m-7 mx-20"
             : "opacity-100 z-10 flex gap-10 m-7 mx-20"
         }
       >
@@ -87,7 +93,7 @@ const Resume = () => {
             </h1>
             <div className="h-100 w-200 flex justify-center items-center">
               <form onSubmit={submitHandler}>
-                <input type="file" name="resumeInfo" className="border-2 border-cyan-300 h-10 w-100 rounded-xl relative right-10" onChange={handler}/>
+                <input type="file" name="resume" className="border-2 border-cyan-300 h-10 w-100 rounded-xl relative right-10" onChange={handler}/>
                 <button className="h-15 w-55 bg-cyan-300 rounded-xl p-5 flex gap-x-1 justify-center items-center relative left-10 top-10" >
                   <h1 className="text-md text-black font-bold">Submit</h1>
                 </button>

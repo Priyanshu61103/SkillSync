@@ -5,7 +5,7 @@ const Testimonials = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
   return (
-      <div className={hostSwitch == "on" ? button==="on"?"z-20 relative bottom-76 opacity-25":"z-20 relative bottom-60 opacity-25" : button === "on"?"relative bottom-16 z-20 opacity-100":"z-20 opacity-100"}>
+      <div className={hostSwitch == "on" ? button==="on"?"z-20 relative bottom-110 opacity-25":"z-20 relative bottom-60 opacity-25" : button === "on"?"relative bottom-50 z-20 opacity-25":"z-20 opacity-100"}>
           <h1 className="text-4xl font-semibold mt-10 mb-2 ml-15 text-gray-300">
             Testimonials
           </h1>
