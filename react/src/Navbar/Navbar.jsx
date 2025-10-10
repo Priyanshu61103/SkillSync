@@ -33,9 +33,9 @@ const Navbar = () => {
             <h1>Internships</h1>
           </div>
         </Link>
-        <div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
+        <Link to="/about"><div className="h-25 w-25 flex justify-center items-center bg-transparent text-white font-semibold hover:bg-cyan-300 hover:text-black">
           <h1>About</h1>
-        </div>
+        </div></Link>
         <div className="flex gap-x-5">
           <div onClick={()=>dispatch(setButton())}>
             <button

@@ -1,17 +1,19 @@
 import React from "react";
-import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Home from "./Home";
 import Jobs from "./Jobs/Jobs";
 import Internships from "./Internships/Internships";
 import AuthPage from "./LoginAndSignUp/AuthPage.jsx";
-import { store } from "./Redux/Store/store";
-import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import {store} from "./Redux/Store/store";
+import {Provider} from "react-redux";
+import {ToastContainer} from "react-toastify";
 import Jobs2 from "./Jobs Host/Jobs2";
 import Internships2 from "./Internships Host/Internships2";
 import Resume from "./Resume/Resume.jsx";
 import Interview from "./Interview/Interview.jsx"
 import AiSetup from "./Interview/Aisetup.jsx";
+import About from "./About/About.jsx";
+import ResumeFeedBack from "./Resume/ResumeFeedBack.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import Details from "./Details/Details.jsx";
 
@@ -30,6 +32,8 @@ const App = () => {
           <Route path="/aiinterview" element={<Interview />}></Route>
           <Route path="/aisetup" element={<AiSetup/>}></Route>
           <Route path="/details" element={<Details/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
+          <Route path="/resume-feedback" element={<ResumeFeedBack/>}></Route>
         </Routes>
         {/* <ToastContainer
           position="top-right"
