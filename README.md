@@ -1,4 +1,4 @@
-**SkillSync: The AI-Powered Career Evolution Platform**
+# SkillSync: The AI-Powered Career Evolution Platform**
 
 # Overview
 
@@ -50,7 +50,8 @@ Listings offer full details including eligibility criteria, skills required (e.g
 ## Post Opportunities: 
 A dedicated interface allows recruiters to securely post new Jobs or Internships, capturing all necessary details like company logo, domain, mode, salary, and experience requirements.
 
-## Role-Based Authentication: Separate login/signup flows ensure secure access for both Candidates and Recruiters.
+## Role-Based Authentication: 
+Separate login/signup flows ensure secure access for both Candidates and Recruiters.
 
 # Tech Stack
 
