@@ -1,4 +1,4 @@
-# SkillSync: The AI-Powered Career Evolution Platform**
+# SkillSync: The AI-Powered Career Evolution Platform
 
 # Overview
 
