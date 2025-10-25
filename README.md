@@ -55,38 +55,38 @@ Separate login/signup flows ensure secure access for both Candidates and Recruit
 
 # Tech Stack
 
-## Component: Frontend
+## Component : Frontend
 
-Technology:React JS
+Technology : React JS
 
-Role:Core UI development using functional components and hooks.
+Role : Core UI development using functional components and hooks.
 
-## Component: Styling
+## Component : Styling
 
-Technology:Tailwind CSS
+Technology : Tailwind CSS
 
-Role:Utility-first framework for rapid, responsive, and modern dark-theme styling.
+Role : Utility-first framework for rapid, responsive, and modern dark-theme styling.
 
-## Component:State Management
+## Component : State Management
 
-Technology:Redux Toolkit
+Technology : Redux Toolkit
 
-Role:Used for predictable and scalable state management across complex features like filtering, authentication, and AI result display.
+Role : Used for predictable and scalable state management across complex features like filtering, authentication, and AI result display.
 
-## Component:AI Workflow
+## Component : AI Workflow
 
-Technology:n8n
+Technology : n8n
 
-Role:Orchestration of complex, multi-step AI logic for resume processing and generating contextual mock interview questions.
+Role : Orchestration of complex, multi-step AI logic for resume processing and generating contextual mock interview questions.
 
-## Component:Backend (API)
+## Component : Backend (API)
 
-Technology:Java Springboot
+Technology : Java Springboot
 
-Role:Robust, scalable RESTful API services for handling business logic and data operations.
+Role : Robust, scalable RESTful API services for handling business logic and data operations.
 
-## Component: Database
+## Component : Database
 
-Technology:MySQL
+Technology : MySQL
 
-Role:Relational database used for persistent storage of user data, job listings, and recruiter information.
+Role : Relational database used for persistent storage of user data, job listings, and recruiter information.
