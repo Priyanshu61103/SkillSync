@@ -36,15 +36,19 @@ Goal: To help users optimize their resumes for Applicant Tracking Systems (ATS) 
 
 # 2. Job & Internship Portal
 
-## Extensive Listings: Users can browse and search for real-time Job and Internship opportunities.
+## Extensive Listings: 
+Users can browse and search for real-time Job and Internship opportunities.
 
-## Advanced Filtering: Comprehensive filtering options are available based on Profile/Role, Location, Years of Experience, Annual Salary/Stipend Range, and Job Type (Full-Time/Part-Time).
+## Advanced Filtering:
+Comprehensive filtering options are available based on Profile/Role, Location, Years of Experience, Annual Salary/Stipend Range, and Job Type (Full-Time/Part-Time).
 
-## Detailed Views: Listings offer full details including eligibility criteria, skills required (e.g., Java, Spring Boot, React, MySQL), job description, and application deadlines.
+## Detailed Views: 
+Listings offer full details including eligibility criteria, skills required (e.g., Java, Spring Boot, React, MySQL), job description, and application deadlines.
 
 # 3. Recruiter/Host Features
 
-## Post Opportunities: A dedicated interface allows recruiters to securely post new Jobs or Internships, capturing all necessary details like company logo, domain, mode, salary, and experience requirements.
+## Post Opportunities: 
+A dedicated interface allows recruiters to securely post new Jobs or Internships, capturing all necessary details like company logo, domain, mode, salary, and experience requirements.
 
 ## Role-Based Authentication: Separate login/signup flows ensure secure access for both Candidates and Recruiters.
 
