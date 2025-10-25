@@ -15,7 +15,8 @@ import AiSetup from "./Interview/Aisetup.jsx";
 import About from "./About/About.jsx";
 import ResumeFeedBack from "./Resume/ResumeFeedBack.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import Details from "./Details/Details.jsx";
+import JobDetails from "./Details/JobDetails.jsx";
+import InternshipDetails from "./Details/InternshipDetails.jsx"
 
 const App = () => {
   return (
@@ -31,7 +32,8 @@ const App = () => {
           <Route path="/internshiphost" element={<Internships2 />}></Route>
           <Route path="/aiinterview" element={<Interview />}></Route>
           <Route path="/aisetup" element={<AiSetup/>}></Route>
-          <Route path="/details" element={<Details/>}></Route>
+          <Route path="/jobdetails" element={<JobDetails/>}></Route>
+          <Route path="/internshipdetails" element={<InternshipDetails/>}></Route>
           <Route path="/about" element={<About/>}></Route>
           <Route path="/resume-feedback" element={<ResumeFeedBack/>}></Route>
         </Routes>

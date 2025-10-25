@@ -1,24 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { setHostSwitch } from "../Redux/Slice/hostSlice/hostSlice";
 import { setButton } from "../Redux/Slice/buttonSlice/buttonSlice";
 import Host from "../Host/Host";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setDetails } from "../Redux/Slice/detailSlice/detailSlice";
 const Hero = () => {
   const [counter1, setCounter1] = useState(0);
   const [counter2, setCounter2] = useState(0);
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
+  const saveDetails = (data) => {
+      dispatch(setDetails(data));
+      navigate("/jobdetails");
+    };
   return (
     <div>
-      {hostSwitch == "on" && (
-        <Host/>
-      )}
-      <div className={hostSwitch == "on" ? button == "on" ? "relative bottom-110 opacity-25 z-10" : "relative bottom-60 opacity-25 z-10" : button == "on" ? "relative bottom-50 opacity-25 z-10" : "opacity-100 z-10"}>
+      {hostSwitch == "on" && <Host />}
+      <div
+        className={
+          hostSwitch == "on"
+            ? button == "on"
+              ? "relative bottom-110 opacity-25 z-10"
+              : "relative bottom-60 opacity-25 z-10"
+            : button == "on"
+            ? "relative bottom-50 opacity-25 z-10"
+            : "opacity-100 z-10"
+        }
+      >
         <div
-          className={
-            "h-125 w-full flex items-center p-10 justify-around z-0"
-          }
+          className={"h-125 w-full flex items-center p-10 justify-around z-0"}
           style={{ backgroundColor: "rgb(20, 20 , 20)" }}
         >
           <div>
@@ -49,7 +61,8 @@ const Hero = () => {
             <button onClick={() => setCounter1(counter1 - 1)}>
               <img src="less_than_icon.png" alt="" className="h-5 w-3" />
             </button>
-            {counter1 <= 0 && (
+
+           {counter1 <= 0 && (
               <div
                 className="h-60 w-75 rounded-xl border-2 border-cyan-300 p-5"
                 style={{ backgroundColor: "rgb(20, 20 , 20)" }}
@@ -798,14 +811,14 @@ const Hero = () => {
               <img src="more_than_icon.png" alt="" className="h-5 w-5" />
             </button>
           </div>
-   
+
           <div>
             <h1 className="text-4xl text-gray-300 font-semibold mt-10 mb-2 ml-15">
               AI Driven Features
             </h1>
             <p className="text-sm text-gray-300 ml-15 mb-15">
-              Master your concepts with AI-Powered full-length mock tests and Resume Analysis for
-              360° preparation!
+              Master your concepts with AI-Powered full-length mock tests and
+              Resume Analysis for 360° preparation!
             </p>
             <div className="h-80 w-full flex justify-around">
               <div className="h-80 w-110 rounded-2xl border-2 border-gray-300">
@@ -818,9 +831,11 @@ const Hero = () => {
                   <h1 className="text-xl font-semibold text-cyan-300">
                     AI-Driven Mock Interview
                   </h1>
-                  <Link to="/aiinterview"><button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
-                    Start Test
-                  </button></Link>
+                  <Link to="/aiinterview">
+                    <button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
+                      Start Test
+                    </button>
+                  </Link>
                 </div>
               </div>
 
@@ -834,15 +849,15 @@ const Hero = () => {
                   <h1 className="text-xl font-semibold text-cyan-300">
                     Resume Analysis
                   </h1>
-                  <Link to="/resume"><button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
-                    Start
-                  </button></Link>
+                  <Link to="/resume">
+                    <button className="h-10 w-25 rounded-xl bg-cyan-300 text-black font-semibold p-2">
+                      Start
+                    </button>
+                  </Link>
                 </div>
               </div>
-
             </div>
           </div>
-          
         </div>
       </div>
     </div>

@@ -77,7 +77,9 @@ const Interview = () => {
         </div>
         <div className="w-2/3 border-2 border-cyan-200 bg-zinc-800 border-dashed min-h-[400px] rounded-2xl mx-auto mt-2 flex flex-col justify-evenly items-center gap-2 ">
           {interviews.length !== 0 ? (
-            <div>all Interviews</div>
+            <div>
+              <img src="../interview.png" alt="" />
+            </div>
           ) : (
             <>
               <PeopleChatLogo style={{ width: 200, height: 200 }} />

@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 import Host from "../Host/Host";
 import { analyzeResume } from "../services/resumeService";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
 const Resume = () => {
   const hostSwitch = useSelector((state) => state.hostSwitch.value);
   const button = useSelector((state) => state.button.value);
@@ -13,6 +15,7 @@ const Resume = () => {
   const [resumeAnalyzerData, setresumeAnalyzerData] = useState({
     resume: "",
   });
+  const navigate = useNavigate();
 
   const resumeHandler = () => {
     submitResume == 1 ? setSubmitResume(0) : setSubmitResume(1);
@@ -33,6 +36,9 @@ const Resume = () => {
     setresumeAnalyzerData({
       resume:""
     });
+    
+    navigate("/resume-feedback");
+
   }
   return (
     <div
@@ -85,7 +91,7 @@ const Resume = () => {
       {submitResume == 1 && (
         <div className="w-full flex justify-center relative bottom-100 left-20">
           <div
-            className="h-100 w-200 rounded-xl p-5 border-2 border-cyan-300"
+            className="h-100 w-200 rounded-xl p-5 border-2 border-cyan-300 relative bottom-20"
             style={{ backgroundColor: "rgb(20,20,20)" }}
           >
             <h1 className="text-cyan-300 text-4xl font-bold">

@@ -61,7 +61,7 @@ const Navbar = () => {
           <input
             type="text"
             placeholder="Search Opportunities"
-            className="h-10 p-5 w-50 border-2 rounded-full border-cyan-200 placeholder:text-xs outline-0"
+            className="h-10 p-5 w-50 border-2 rounded-full border-cyan-200 placeholder:text-xs placeholder:text-gray-300 outline-0"
           />
         </div>
         <div>
@@ -76,20 +76,6 @@ const Navbar = () => {
         </div>
       </div>
        <div className={button == "on" ? "h-50 w-100 rounded-xl relative bottom-8 left-170 z-30" : "hidden"} style={{ backgroundColor: "rgb(20, 20, 20)"}}>
-            {/* <div
-              className="h-8 w-35 flex justify-center items-center border-b-2 border-b-gray-200"
-              style={{ backgroundColor: "rgb(28,28,28)" }}
-            >
-                <Link to="/aiinterview" >
-              AI Interview
-                </Link>
-            </div>
-            <div
-              className="h-8 w-35 flex justify-center items-center rounded-b-xl"
-              style={{ backgroundColor: "rgb(28,28,28)" }}
-            >
-              Resume Analysis
-            </div> */}
              <Link to="/aiinterview"><div className="h-25 w-90 m-4 border-b-2 border-b-cyan-200 text-gray-300 text-xl flex items-center justify-center">
                   <div className="flex gap-5">
                       <img src="ailogo2.png" alt="" className="h-12 w-12"/>

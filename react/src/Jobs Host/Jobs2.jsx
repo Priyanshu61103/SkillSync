@@ -42,7 +42,7 @@ const Jobs2 = () => {
     console.log(postJobData);
     const responseMessage  = await createJob(postJobData);
     toast.success(responseMessage);
-
+    alert("Job Posted Successfully"); 
     setPostJobData({
       title: "",
     description:"",
@@ -133,7 +133,7 @@ const Jobs2 = () => {
                   htmlFor="domain"
                   className="text-md font-semibold mr-5"
                 >
-                  Internship Domain
+                  Job Domain
                 </label>
                 <input
                   type="text"
@@ -147,7 +147,7 @@ const Jobs2 = () => {
 
               <div>
                 <label htmlFor="modeOfJob" className="text-md font-semibold mr-5">
-                  Internship Mode
+                  Job Mode
                 </label>
                 <input
                   type="text"
